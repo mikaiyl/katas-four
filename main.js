@@ -5,6 +5,7 @@
 const gotCitiesCSV = "King's Landing,Braavos,Volantis,Old Valyria,Free Cities,Qarth,Meereen";
 const lotrCitiesArray = ["Mordor","Gondor","Rohan","Beleriand","Mirkwood","Dead Marshes","Rhun","Harad"];
 const bestThing = "The best thing about a boolean is even if you are wrong you are only off by a bit"
+let popped;
 
     /*
      *      Setup
@@ -196,20 +197,171 @@ function kataNineteen() {
 
 function kataTwenty() {
     let div = {
-        title: "",
-        content: ""
+        title: "Find and display all cities from lotrCitiesArray that end with \"or\"",
+        content: (()=>{
+            let endInOr = [];
+            lotrCitiesArray.forEach((value, index, array) => {
+                if (value.includes("or")) {
+                    endInOr.push(value);
+                }
+            });
+            return endInOr.join(", ");
+         })()
+    }
+    return div;
+}
+
+function kataTwentyOne() {
+    let div = {
+        ttle: "Find and display all the words in bestThing that start with a \"b\"",
+        content: ( () => {
+            let startsWithB = [];
+            bestThing.split(' ').forEach( (thing) => {
+                if (thing.toLowerCase().startsWith('b')){
+                    startsWithB.push(thing);
+                }
+            });
+        })()
     }; return div;
 }
 
+function kataTwentyTwo() {
+    let div = {
+        title: "Display \"Yes\" or \"No\" if lotrCitiesArray includes \"Mirkwood\"",
+        content: ( () => {
+            return lotrCitiesArray.includes("Mirkwood") ? "Yes" : "No";
+        })()
+    }; return div;
+}
 
+function kataTwentyThree() {
+    let div = {
+        title: "Display \"Yes\" or \"No\" if lotrCitiesArray includes \"Hollywood\"",
+        content: ( () => {
+            return lotrCitiesArray.includes("Hollywood") ? "Yes" : "No";
+        })()
+    }; return div;
+}
 
+function kataTwentyFour() {
+    let div = {
+        title: "Display the index of \"Mirkwood\" in lotrCitiesArray",
+        content: ( () => {
+            return lotrCitiesArray.findIndex( (value) => {
+                return value == "Mirkwood";
+            });
+        })()
+    }; return div;
+}
+
+function kataTwentyFive() {
+    let div = {
+        title: "Find and display the first city in lotrCitiesArray that has more than one word",
+        content: lotrCitiesArray.find((value) => {
+            return value.includes(" ");
+        })
+    }; return div;
+}
+
+function kataTwentySix() {
+    let div = {
+        title: "Reverse the order in lotrCitiesArray",
+        content: lotrCitiesArray.reverse()
+    }; return div;
+}
+
+function kataTwentySeven() {
+    let div = {
+        title: "Sort lotrCitiesArray alphabetically",
+        content: lotrCitiesArray.sort()
+    }; return div;
+}
+
+function kataTwentyEight() {
+    let div = {
+        title: "Sort lotrCitiesArray by the number of characters in each city (i.e., shortest city names go first)",
+        content: lotrCitiesArray.sort( (a,b) => {
+            if ( a.length > b.length ) {
+                return 1;
+            } else if ( a.length , b.length ) {
+                return -1;
+            } else {
+                return 0;
+            }
+        })
+    }; return div;
+}
+
+function kataTwentyNine() {
+    popped = lotrCitiesArray.pop();
+    let div = {
+        title: "Using pop, remove the last city from lotrCitiesArray",
+        content: lotrCitiesArray
+    }; return div;
+}
+
+function kataThirty() {
+    lotrCitiesArray.push(popped)
+    let div = {
+        title: "Using push, add back the city from lotrCitiesArray that was removed in #29 to the back of the array",
+        content: lotrCitiesArray
+    }; return div;
+}
+
+function kataThirtyOne() {
+    popped = lotrCitiesArray.shift();
+    let div = {
+        title: "Using shift, remove the first city from lotrCitiesArray",
+        content: lotrCitiesArray
+    }; return div;
+}
+
+function kataThirtyTwo() {
+    lotrCitiesArray.unshift(popped);
+    let div = {
+        title: "Using unshift, add back the city from lotrCitiesArray that was removed in #31 to the front of the array",
+        content: lotrCitiesArray
+    }; return div;
+}
 
     /*
      *      Main
      */
 
-const functions = [ kataOne, kataTwo, kataThree, kataFour, kataFive, kataSix, kataSeven, kataEight, kataNine, kataTen,
-    kataEleven, kataTwelve, kataThirteen, kataFourteen, kataFifteen, kataSixteen, kataSeventeen, kataEighteen, kataNineteen ];
+const functions = [
+    kataOne,
+    kataTwo,
+    kataThree,
+    kataFour,
+    kataFive,
+    kataSix,
+    kataSeven,
+    kataEight,
+    kataNine,
+    kataTen,
+    kataEleven,
+    kataTwelve,
+    kataThirteen,
+    kataFourteen,
+    kataFifteen,
+    kataSixteen,
+    kataSeventeen,
+    kataEighteen,
+    kataNineteen,
+    kataTwenty,
+    kataTwentyOne,
+    kataTwentyTwo,
+    kataTwentyThree,
+    kataTwentyFour,
+    kataTwentyFive,
+    kataTwentySix,
+    kataTwentySeven,
+    kataTwentyEight,
+    kataTwentyNine,
+    kataThirty,
+    kataThirtyOne,
+    kataThirtyTwo
+];
 
 (function(){
 	for (let func of functions) {
